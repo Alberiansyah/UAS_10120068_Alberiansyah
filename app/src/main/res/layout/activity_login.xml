@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginVertical="15dp"
+    android:layout_marginHorizontal="30dp"
+    tools:context=".SignUp">
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="32dp"
+        android:id="@+id/sign_up_icon"
+        android:src="@drawable/login">
+
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sign_up_icon"
+        android:id="@+id/haloTeks"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masuk"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="@color/black"
+            android:textAlignment="center">
+        </TextView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/haloTeks"
+        android:id="@+id/formDaftar"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Email ..."
+            android:background="@drawable/rounded"
+            android:padding="15dp"
+            android:layout_marginTop="60dp"
+            android:textSize="18sp"
+            android:id="@+id/email">
+
+        </EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Password ..."
+            android:inputType="textPassword"
+            android:textSize="18sp"
+            android:background="@drawable/rounded"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/password">
+        </EditText>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:id="@+id/loginButton"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:text="Daftar">
+        </com.google.android.material.button.MaterialButton>
+
+        <ProgressBar
+            android:layout_width="25dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:id="@+id/progressBar">
+        </ProgressBar>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/formDaftar"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum punya akun? Klik ">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="disini"
+            android:id="@+id/signUpText"
+            android:textStyle="bold">
+        </TextView>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

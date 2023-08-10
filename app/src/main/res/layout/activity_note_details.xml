@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:padding="15dp"
+    tools:context="fragment.NoteDetailsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleBar">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:text="Tambah note baru"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+
+        <ImageButton
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/save"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/baseline_done_24"
+            android:layout_centerVertical="true"
+            app:tint="@color/black"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            >
+
+        </ImageButton>
+
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleBar"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:layout_marginVertical="25dp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/rounded">
+        
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/judulNote"
+            android:hint="Masukkan Judul"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="5dp"
+            android:padding="10dp"
+            android:textColor="@color/black">
+
+        </EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/isiNote"
+            android:hint="Masukkan Isi note ..."
+            android:minLines="15"
+            android:gravity="top"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="5dp"
+            android:padding="10dp"
+            android:textColor="@color/black">
+
+        </EditText>
+
+    </LinearLayout>
+
+</RelativeLayout>

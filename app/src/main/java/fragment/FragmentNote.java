@@ -1,72 +1,75 @@
 package fragment;
 
-/**
- * NIM      : 10120068
- * Nama     : Alberiansyah
- * Kelas    : IF-2
- */
-
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.example.uas_10120068_alberiansyah.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentNote#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.uas_10120068_alberiansyah.Utility;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.Query;
+
 public class FragmentNote extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    FloatingActionButton tambahNote;
+    RecyclerView recycler;
+    ImageButton menuButton;
+    NoteAdapter noteAdapter;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_note, container, false);
 
-    public FragmentNote() {
-        // Required empty public constructor
+        tambahNote = view.findViewById(R.id.tambahNote);
+        recycler = view.findViewById(R.id.recycler);
+        menuButton = view.findViewById(R.id.menuButton);
+
+
+        tambahNote.setOnClickListener((v) -> startActivity(new Intent(getActivity(), NoteDetailsActivity.class)));
+        menuButton.setOnClickListener((v)->showMenu());
+
+        setupRecyclerView();
+        return view;
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentNote.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentNote newInstance(String param1, String param2) {
-        FragmentNote fragment = new FragmentNote();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    void showMenu(){
+
+    }
+
+    void setupRecyclerView(){
+        Query query = Utility.getCollectionReferenceForNotes().orderBy("timestamp", Query.Direction.DESCENDING);
+        FirestoreRecyclerOptions<Note> options = new FirestoreRecyclerOptions.Builder<Note>().setQuery(query, Note.class).build();
+        recycler.setLayoutManager(new LinearLayoutManager(requireContext()));
+        noteAdapter = new NoteAdapter(options, requireContext());
+        recycler.setAdapter(noteAdapter);
+    }
+
+    public void onStart(){
+        super.onStart();
+        noteAdapter.startListening();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onStop(){
+        super.onStop();
+        noteAdapter.stopListening();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_note, container, false);
+    public void onResume(){
+        super.onResume();
+        noteAdapter.notifyDataSetChanged();
     }
 }

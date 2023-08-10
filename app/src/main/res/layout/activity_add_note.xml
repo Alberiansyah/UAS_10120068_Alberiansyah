@@ -67,7 +67,7 @@
         android:layout_below="@id/buttonAdd"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/purple_200"
+        android:backgroundTint="@color/primary"
         android:text="delete"
         android:layout_gravity="bottom|end"
         android:layout_marginHorizontal="40dp"

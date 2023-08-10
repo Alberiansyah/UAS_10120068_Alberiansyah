@@ -1,29 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context="fragment.FragmentNote">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:id="@+id/titleBar">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mynote"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingHorizontal="14dp"
-            tools:listitem="@layout/item_note" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:text="List Note"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+
+        <ImageButton
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/menuButton"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/baseline_menu_24"
+            android:layout_centerVertical="true"
+            app:tint="@color/black"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            >
+
+        </ImageButton>
+
     </RelativeLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleBar"
+        android:id="@+id/recycler">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <!-- TODO: Update blank fragment layout -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_add"
-        android:layout_gravity="bottom|end"
         android:layout_width="wrap_content"
-        android:layout_marginBottom="85dp"
-        android:layout_marginRight="20dp"
-        android:src="@drawable/baseline_add_24"
-        app:backgroundTint="@color/purple_500"
-        android:layout_height="wrap_content"/>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/tambahNote"
+        android:layout_marginBottom="75dp"
+        android:src="@drawable/baseline_add_24">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+</RelativeLayout>

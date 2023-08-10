@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp"
+    android:background="@drawable/rounded"
+    android:backgroundTint="@color/primary"
+    android:padding="12dp">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:id="@+id/judulNote"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginVertical="5dp">
+
+    </TextView>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Note ini dapat menampung banyak kata."
+        android:id="@+id/isiNote"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="15sp"
+        android:layout_marginVertical="5dp">
+
+    </TextView>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Note ini dapat menampung banyak kata."
+        android:id="@+id/timestamp"
+        android:textSize="10sp"
+        android:gravity="right"
+        android:layout_marginVertical="5dp">
+
+    </TextView>
+
+</LinearLayout>

@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.example.uas_10120068_alberiansyah.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -33,7 +35,12 @@ public class SplashScreen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), com.example.uas_10120068_alberiansyah.MainActivity.class));
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                if(currentUser == null){
+                    startActivity(new Intent(getApplicationContext(), com.example.uas_10120068_alberiansyah.Login.class));
+                }else{
+                    startActivity(new Intent(getApplicationContext(), com.example.uas_10120068_alberiansyah.MainActivity.class));
+                }
                 finish();
             }
         }, 3000L); //3000 L = 3 detik
