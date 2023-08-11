@@ -43,6 +43,6 @@ public class SplashScreen extends AppCompatActivity {
                 }
                 finish();
             }
-        }, 3000L); //3000 L = 3 detik
+        }, 2500L); //2500 L = 2.5 detik
     }
 }
