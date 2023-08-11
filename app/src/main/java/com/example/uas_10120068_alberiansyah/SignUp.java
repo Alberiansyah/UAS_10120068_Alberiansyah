@@ -1,5 +1,11 @@
 package com.example.uas_10120068_alberiansyah;
 
+/**
+ * NIM      : 10120068
+ * Nama     : Alberiansyah
+ * Kelas    : IF-2
+ */
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -66,7 +72,7 @@ public class SignUp extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         changeInProgress(false);
                         if(task.isSuccessful()){
-                            Utility.showToast(SignUp.this, "Berhasil membuat akun");
+                            Utility.showToast(SignUp.this, "Berhasil membuat akun, silahkan konfirmasi email anda.");
                             firebaseAuth.getCurrentUser().sendEmailVerification();
                             firebaseAuth.signOut();
                             finish();

@@ -1,5 +1,11 @@
 package com.example.uas_10120068_alberiansyah;
 
+/**
+ * NIM      : 10120068
+ * Nama     : Alberiansyah
+ * Kelas    : IF-2
+ */
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +23,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
@@ -48,11 +55,11 @@ public class Login extends AppCompatActivity {
         boolean isValidated = validate(email, password);
 
         if(!isValidated){
+//            Utility.showToast(Login.this, "Email/Password tidak valid, pastikan anda sudah konfirmasi email.");
             return;
         }
 
         loginAccountInFireBase(email, password);
-
 
     }
 
@@ -63,14 +70,17 @@ public class Login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 changeInProgress(false);
-                if(task.isSuccessful()){
-                    if(firebaseAuth.getCurrentUser().isEmailVerified()){
+                if (task.isSuccessful()) {
+                    FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                    if (currentUser != null && currentUser.isEmailVerified()) {
                         Utility.showToast(Login.this, "Selamat datang.");
                         startActivity(new Intent(getApplicationContext(), com.example.uas_10120068_alberiansyah.MainActivity.class));
                         finish();
-                    }else{
-                        Utility.showToast(Login.this, "Email belum terverifikasi, Mohon verifikasi email anda.");
+                    } else {
+                        Utility.showToast(Login.this, "Email atau password tidak valid.");
                     }
+                } else {
+                    Utility.showToast(Login.this, "Email/Password tidak valid atau Email belum terverifikasi");
                 }
             }
         });

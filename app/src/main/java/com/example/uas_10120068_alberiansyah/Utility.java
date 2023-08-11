@@ -1,5 +1,11 @@
 package com.example.uas_10120068_alberiansyah;
 
+/**
+ * NIM      : 10120068
+ * Nama     : Alberiansyah
+ * Kelas    : IF-2
+ */
+
 import android.content.Context;
 import android.widget.ImageView;
 import android.widget.TextView;

@@ -50,7 +50,7 @@
             android:textColor="@color/black"
             android:textAlignment="inherit"
             android:textSize="16sp"
-            android:text="Ini adalah aplikasi untuk menulis catatan, Aplikasi ini dibuat untuk memenuhi tugas UAS APlikasi Komputasi Bergerak." />
+            android:text="Ini adalah aplikasi untuk menulis catatan, Aplikasi ini dibuat untuk memenuhi tugas UAS mata kuliah Aplikasi Komputasi Bergerak." />
 
     </LinearLayout>
 

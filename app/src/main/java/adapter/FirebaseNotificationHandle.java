@@ -1,5 +1,11 @@
 package adapter;
 
+/**
+ * NIM      : 10120068
+ * Nama     : Alberiansyah
+ * Kelas    : IF-2
+ */
+
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;

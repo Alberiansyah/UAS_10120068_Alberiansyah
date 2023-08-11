@@ -1,5 +1,11 @@
 package fragment;
 
+/**
+ * NIM      : 10120068
+ * Nama     : Alberiansyah
+ * Kelas    : IF-2
+ */
+
 import com.google.firebase.Timestamp;
 
 public class Note {

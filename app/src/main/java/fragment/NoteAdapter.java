@@ -1,5 +1,11 @@
 package fragment;
 
+/**
+ * NIM      : 10120068
+ * Nama     : Alberiansyah
+ * Kelas    : IF-2
+ */
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;

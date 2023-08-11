@@ -30,9 +30,6 @@
             android:name=".SignUp"
             android:exported="false" />
         <activity
-            android:name=".AddNote"
-            android:exported="true" />
-        <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
