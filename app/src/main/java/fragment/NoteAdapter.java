@@ -1,6 +1,7 @@
 package fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,16 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
         holder.judulText.setText(note.judulNote);
         holder.isiNoteText.setText(note.isiNote);
         holder.timestampText.setText(Utility.timeStampToString(note.timestamp));
+        
+        holder.itemView.setOnClickListener((v)->{
+            Intent intent = new Intent(context, NoteDetailsActivity.class);
+            intent.putExtra("Judul", note.judulNote);
+            intent.putExtra("Isi", note.isiNote);
+            String docId = this.getSnapshots().getSnapshot(position).getId();
+            intent.putExtra("docId", docId);
+            context.startActivity(intent);
+
+        });
     }
 
     @NonNull

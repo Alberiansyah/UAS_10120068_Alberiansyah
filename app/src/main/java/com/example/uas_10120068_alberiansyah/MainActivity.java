@@ -24,6 +24,10 @@ import fragment.FragmentHome;
 import fragment.FragmentInfo;
 import fragment.FragmentNote;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
+
 public class MainActivity extends AppCompatActivity {
     ViewPager2 pagerMain;
     ArrayList<Fragment> fragmentsArrayList = new ArrayList<>();

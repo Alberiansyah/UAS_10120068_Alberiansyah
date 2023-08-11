@@ -3,10 +3,13 @@ package fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 
+import com.example.uas_10120068_alberiansyah.Login;
 import com.example.uas_10120068_alberiansyah.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +21,8 @@ import com.example.uas_10120068_alberiansyah.Utility;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.Query;
 
 public class FragmentNote extends Fragment {
@@ -37,7 +42,7 @@ public class FragmentNote extends Fragment {
         menuButton = view.findViewById(R.id.menuButton);
 
 
-        tambahNote.setOnClickListener((v) -> startActivity(new Intent(getActivity(), NoteDetailsActivity.class)));
+        tambahNote.setOnClickListener((v)->startActivity(new Intent(getActivity(), NoteDetailsActivity.class)));
         menuButton.setOnClickListener((v)->showMenu());
 
         setupRecyclerView();
@@ -45,7 +50,19 @@ public class FragmentNote extends Fragment {
     }
 
     void showMenu(){
-
+        PopupMenu popupMenu = new PopupMenu(requireContext(), menuButton);
+        popupMenu.getMenu().add("Keluar");
+        popupMenu.show();
+        popupMenu.setOnMenuItemClickListener((new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                if(menuItem.getTitle() == "Keluar"){
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(requireContext(), Login.class));
+                }
+                return false;
+            }
+        }));
     }
 
     void setupRecyclerView(){

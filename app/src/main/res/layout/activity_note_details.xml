@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/title"
+            android:id="@+id/judul"
             android:text="Tambah note baru"
             android:textSize="30sp"
             android:textColor="@color/black"
@@ -78,5 +78,18 @@
         </EditText>
 
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/hapusNote"
+        android:text="Hapus Note"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:backgroundTint="#FF0000"
+        android:textColor="@color/white">
+
+    </Button>
 
 </RelativeLayout>

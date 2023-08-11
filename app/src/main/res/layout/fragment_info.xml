@@ -2,10 +2,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
+    android:padding="15dp"
     tools:context="fragment.FragmentInfo">
 
     <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleBar">
+
+        <ImageButton
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/menuButton"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/baseline_menu_24"
+            android:layout_centerVertical="true"
+            app:tint="@color/black"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            >
+        </ImageButton>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +50,7 @@
             android:textColor="@color/black"
             android:textAlignment="inherit"
             android:textSize="16sp"
-            android:text="Ini adalah aplikasi untuk menulis catatan, dikarenakan adanya halangan terhadap pembuat (Alberiansyah) yaitu Ayah saya masuk Rumah sakit. Aplikasi ini tidak dapat selesai sebagaimana mestinya. Dimohon pengertiannya terima kasih." />
+            android:text="Ini adalah aplikasi untuk menulis catatan, Aplikasi ini dibuat untuk memenuhi tugas UAS APlikasi Komputasi Bergerak." />
 
     </LinearLayout>
 
