@@ -2,7 +2,7 @@ Ini adalah aplikasi untuk menulis catatan, Aplikasi ini dibuat untuk memenuhi tu
 
 Jika terdapat SDK error, mohon buat file local.properties lalu ganti dengan direktori SDK anda.
 
-Jika saat aplikasi dijalankan tampil SplashScreen kemudian aplikasi tiba-tiba tertutup, coba lakukan klik kembali pada aplikasi maka aplikas akan berjalan normal.
+Jika saat aplikasi dijalankan tampil SplashScreen kemudian aplikasi tiba-tiba tertutup, coba lakukan klik kembali pada aplikasi maka aplikasi akan berjalan dengan normal.
 
 Dibuat oleh :
 10120068 - Alberiansyah
