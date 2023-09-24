@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Context;
+import android.view.inputmethod.InputMethodManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -60,7 +62,9 @@ public class Login extends AppCompatActivity {
         }
 
         loginAccountInFireBase(email, password);
-
+        // Menghilangkan keyboard
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(loginButton.getWindowToken(), 0);
     }
 
     void loginAccountInFireBase(String email, String password){
@@ -77,10 +81,10 @@ public class Login extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), com.example.uas_10120068_alberiansyah.MainActivity.class));
                         finish();
                     } else {
-                        Utility.showToast(Login.this, "Email atau password tidak valid.");
+                        Utility.showToast(Login.this, "Email belum terverifikasi, silahkan cek email anda.");
                     }
                 } else {
-                    Utility.showToast(Login.this, "Email/Password tidak valid atau Email belum terverifikasi");
+                    Utility.showToast(Login.this, "Email/Password tidak valid.");
                 }
             }
         });
